@@ -29,6 +29,19 @@ class SiteApiController extends Controller
         return view('sites', compact('data'));
     }
 
+    public function coronaApi()
+    {
+        $coronaApi = 'https://api.kawalcorona.com/indonesia/provinsi';
+        $client = new Client();
+
+        $dataCoronaIndonesia = $client->request('GET', $coronaApi);
+        $getCoronaApi = collect(json_decode($dataCoronaIndonesia->getBody()->getContents()));
+
+        return view('corona', [
+            'data' => $getCoronaApi
+        ]);
+    }
+
     public function store()
     {
         try {

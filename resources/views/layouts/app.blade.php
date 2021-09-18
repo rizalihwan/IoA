@@ -34,6 +34,9 @@
                     <a class="navbar-brand" href="{{ route('sites.index') }}">
                         Sites
                     </a>
+                    <a class="navbar-brand" href="{{ route('sites.corona') }}">
+                        Corona Data
+                    </a>
                 @endauth
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
