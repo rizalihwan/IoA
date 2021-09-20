@@ -19,6 +19,12 @@ class SiteApiController extends Controller
 
     public function index()
     {
+        // $curl = 'http://dev-plnmarketplace.air.id/api/query/services';
+
+        // $client = new Client();
+        // $response = $client->request('GET', $curl);
+        // $data = json_decode($response->getBody()->getContents());
+        // dd($data);
         try {
             $getData = json_decode($this->getApiData('GET', [])->getBody()->getContents());
             $data = collect($getData);
