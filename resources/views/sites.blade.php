@@ -42,7 +42,12 @@
                                 <th>{{ $item->id }}</th>
                                 <td>{{ $item->title }}</td>
                                 <td>
-                                    <a href="{{ route('sites.detail', $item->id) }}" class="btn btn-info">Detail</a>
+                                    <a href="{{ route('sites.detail', $item->id) }}" class="btn btn-sm btn-info mb-1">Detail</a>
+                                    <form action="{{ route('sites.destroy', $item->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

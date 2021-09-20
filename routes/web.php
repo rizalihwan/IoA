@@ -14,6 +14,7 @@ Route::prefix('sites')->name('sites.')->namespace('Api')->group(function() {
     Route::get('index', 'SiteApiController@index')->name('index');
     Route::get('detail/{id}', 'SiteApiController@detail')->name('detail');
     Route::post('add', 'SiteApiController@store')->name('store');
+    Route::delete('destroy/{id}', 'SiteApiController@destroy')->name('destroy');
 
     Route::get('api/corona', 'SiteApiController@coronaApi')->name('corona');
 });

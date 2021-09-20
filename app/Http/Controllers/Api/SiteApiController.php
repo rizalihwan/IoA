@@ -77,4 +77,14 @@ class SiteApiController extends Controller
 
         return view('detailsites', compact('data'));
     }
+
+    public function destroy($id)
+    {
+        $api = "https://jsonplaceholder.typicode.com/posts/{$id}";
+        $client = new Client();
+
+        $action = $client->request('DELETE', $api);
+
+        dd(collect($action));
+    }
 }
