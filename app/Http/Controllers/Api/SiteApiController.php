@@ -7,6 +7,13 @@ use GuzzleHttp\Client;
 
 class SiteApiController extends Controller
 {
+    public function __construct()
+    {
+        $this->url = 'http://quran-endpoint.herokuapp.com';
+
+        $this->client = new Client();
+    }
+
     public function getApiData($apiType, array $options = [])
     {
         $apiURL = 'https://jsonplaceholder.typicode.com/posts';
@@ -80,5 +87,31 @@ class SiteApiController extends Controller
         $action = $client->request('DELETE', $api);
 
         dd(collect($action));
+    }
+
+    public function getImam()
+    {
+        $apiResult = $this->client->request('GET', "{$this->url}/imam", [
+            'headers' => [
+                'Content-Type' => 'application/json'
+            ]
+        ]);
+
+        $getquranApi = collect(json_decode($apiResult->getBody()));
+
+        dd($getquranApi);
+    }
+
+    public function quranApi()
+    {
+        $apiResult = $this->client->request('GET', "{$this->url}/quran", [
+            'headers' => [
+                'Content-Type' => 'application/json'
+            ]
+        ]);
+
+        $getquranApi = collect(json_decode($apiResult->getBody()));
+
+        dd($getquranApi);
     }
 }
